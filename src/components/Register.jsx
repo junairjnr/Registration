@@ -1,10 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Register() {
-
-
   return (
     <div className='text-center bg-yellow-50 h-screen'>
       <h1 className='text-2xl mb-3'>Registration Form</h1>
@@ -13,13 +12,22 @@ function Register() {
           userName: "",
           password: "",
           email: "",
-          isActive:""
+          isActive:0
         }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
           }, 1000);
+
+          axios.post('https://localhost:44327/api/Registration/registration', values)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
         }}
       >
         {props => (
