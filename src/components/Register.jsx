@@ -12,7 +12,7 @@ function Register() {
           userName: "",
           password: "",
           email: "",
-          isActive:0
+          isActive: 0
         }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
@@ -21,12 +21,12 @@ function Register() {
           }, 1000);
 
           axios.post('https://localhost:44327/api/Registration/registration', values)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
 
         }}
       >
@@ -71,15 +71,14 @@ function Register() {
               {props.errors.name && <div id="feedback">{props.errors.name}</div>}
             </label>
             <br />
-            {/* <button className='' type="submit">Submit</button> */}
             <button type="submit" className="mt-4 text-blue-300 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Submit</button>
-           <div className='ml-96 flex '>  
+            <div className='ml-96 flex '>
               Already have Acount ?
-            <Link to='/login'>
-          <p onClick={() =>{
-            console.log('Login');
-          }} className='ml-2 text-base text-gray-400 hover:text-gray-900 duration-500'>Login</p>
-          </Link>
+              <Link to='/login'>
+                <p onClick={() => {
+                  console.log('Login');
+                }} className='ml-2 text-base text-gray-400 hover:text-gray-900 duration-500'>Login</p>
+              </Link>
             </div>
           </form>
         )}
